@@ -1,0 +1,26 @@
+name: Unzip and extract repository
+
+on:
+  push:
+    branches:
+      - main  # یا شاخه‌ای که شما روی آن کار می‌کنید
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Unzip the file
+        run: |
+          mkdir extracted
+          unzip your-file.zip -d extracted/
+
+      - name: Move contents to repository root
+        run: |
+          mv extracted/* ./
+          rmdir extracted
+          git add .
+          git commit -m "Extract ZIP contents"
+          git push
