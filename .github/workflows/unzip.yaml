@@ -20,7 +20,10 @@ jobs:
       - name: Move contents to repository root
         run: |
           mv extracted/* ./
-          rmdir extracted
+          rm -rf extracted  # حذف پوشه extracted و محتویات آن
+
+      - name: Commit changes
+        run: |
           git add .
           git commit -m "Extract ZIP contents"
           git push
