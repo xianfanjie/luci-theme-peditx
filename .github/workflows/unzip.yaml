@@ -15,7 +15,7 @@ jobs:
       - name: Unzip the file
         run: |
           mkdir extracted
-          unzip your-file.zip -d extracted/
+          luci-theme-peditx.zip -d extracted/
 
       - name: Move contents to repository root
         run: |
