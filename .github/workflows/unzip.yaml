@@ -22,6 +22,11 @@ jobs:
           mv extracted/* ./
           rm -rf extracted  # حذف پوشه extracted و محتویات آن
 
+      - name: Configure Git identity
+        run: |
+          git config --global user.email "pedram.ale@me.com"
+          git config --global user.name "peditx"
+
       - name: Commit changes
         run: |
           git add .
