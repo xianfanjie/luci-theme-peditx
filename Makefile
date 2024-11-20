@@ -10,15 +10,15 @@ THEME_NAME:=peditx
 THEME_TITLE:=PeDitX
 
 PKG_NAME:=luci-theme-$(THEME_NAME)
-PKG_VERSION:=1.0.1-beta
-PKG_RELEASE:=4
+PKG_VERSION:=1.0.3
+PKG_RELEASE:=9
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/luci-theme-$(THEME_NAME)
   SECTION:=luci
   CATEGORY:=LuCI
-  SUBMENU:=9. Themes
+  SUBMENU:=4. Themes
   DEPENDS:=+libc
   TITLE:=LuCi Theme For OpenWrt - $(THEME_TITLE)
   URL:=http://t.me/peditx
