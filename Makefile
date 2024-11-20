@@ -10,8 +10,8 @@ THEME_NAME:=peditx
 THEME_TITLE:=PeDitX
 
 PKG_NAME:=luci-theme-$(THEME_NAME)
-PKG_VERSION:=1.0.2
-PKK_RELEASE:=9
+PKG_VERSION:=1.0.1-beta
+PKG_RELEASE:=4
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -20,7 +20,7 @@ define Package/luci-theme-$(THEME_NAME)
   CATEGORY:=LuCI
   SUBMENU:=9. Themes
   DEPENDS:=+libc
-  TITLE:=LuCI Theme For OpenWrt - $(THEME_TITLE)
+  TITLE:=LuCi Theme For OpenWrt - $(THEME_TITLE)
   URL:=http://t.me/peditx
   PKGARCH:=all
 endef
@@ -32,24 +32,29 @@ define Build/Compile
 endef
 
 define Package/luci-theme-$(THEME_NAME)/install
-	# Copy theme files to /usr/lib/lua/luci/view/themes
-	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/themes/$(THEME_NAME)
-	$(CP) -a ./luasrc/view/themes/$(THEME_NAME)/* $(1)/usr/lib/lua/luci/view/themes/$(THEME_NAME)/
-
-	# Copy UCI Defaults script to /etc/uci-defaults
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(CP) ./root/etc/uci-defaults/30-luci-theme-$(THEME_NAME) $(1)/etc/uci-defaults/
-
-	# Ensure static theme files are in the correct www path
+	echo "uci set luci.themes.$(THEME_TITLE)=/luci-static/$(THEME_NAME); uci commit luci" > $(1)/etc/uci-defaults/30-luci-theme-$(THEME_NAME)
 	$(INSTALL_DIR) $(1)/www/luci-static/$(THEME_NAME)
-	$(CP) -a ./js/* $(1)/www/luci-static/$(THEME_NAME)/ 2>/dev/null || true
+	$(CP) -a ./luasrc/* $(1)/www/luci-static/$(THEME_NAME)/ 2>/dev/null || true
+	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/themes/$(THEME_NAME)
+	$(CP) -a ./template/* $(1)/usr/lib/lua/luci/view/themes/$(THEME_NAME)/ 2>/dev/null || true
+	$(INSTALL_DIR) $(1)/www/luci-static/$(THEME_NAME)/resources
+	$(CP) -a ./js/* $(1)/www/luci-static/$(THEME_NAME)/resources/ 2>/dev/null || true
+	$(INSTALL_DIR) $(1)/etc/config
+	$(CP) -a ./root/etc/config/* $(1)/etc/config/ 2>/dev/null || true
 endef
 
 define Package/luci-theme-$(THEME_NAME)/postinst
 #!/bin/sh
 [ -n "$${IPKG_INSTROOT}" ] || {
-	. /etc/uci-defaults/30-luci-theme-$(THEME_NAME)
+	uci get luci.themes.peditx >/dev/null 2>&1 || \
+	uci batch <<-EOF
+		set luci.themes.peditx=/luci-static/$(THEME_NAME)
+		set luci.main.mediaurlbase=/luci-static/$(THEME_NAME)
+		commit luci
+	EOF
 }
+exit 0
 endef
 
 $(eval $(call BuildPackage,luci-theme-$(THEME_NAME)))

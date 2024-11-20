@@ -31,8 +31,8 @@ uci:foreach("peditx", "navbar", function(section)
 	local icon_url = section.icon
 
 	if address and icon_url then
-		-- Remove '/www/luci-static/view/themes/peditx/' from icon_url
-		icon_url = string.gsub(icon_url, "^/www/luci%-static/view/themes/peditx/", "")
+		-- Remove '/www/luci-static/peditx/' from icon_url
+		icon_url = string.gsub(icon_url, "^/www/luci%-static/peditx/", "")
 		icon[address] = icon_url
 	end
 end)
