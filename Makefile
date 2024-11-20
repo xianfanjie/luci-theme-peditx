@@ -45,11 +45,6 @@ define Package/luci-theme-$(THEME_NAME)/install
 	$(CP) -a ./root/etc/config/* $(1)/etc/config/ 2>/dev/null || true
 endef
 
-define Package/luci-theme-$(THEME_NAME)/postinst
-#!/bin/sh
-[ -n "$${IPKG_INSTROOT}" ] || {
-	( . /etc/uci-defaults/30-luci-theme-$(THEME_NAME) ) && rm -f /etc/uci-defaults/30-luci-theme-$(THEME_NAME)
-}
-endef
+
 
 $(eval $(call BuildPackage,luci-theme-$(THEME_NAME)))
