@@ -10,8 +10,8 @@ THEME_NAME:=peditx
 THEME_TITLE:=PeDitX
 
 PKG_NAME:=luci-theme-$(THEME_NAME)
-PKG_VERSION:=1.0.1
-PKK_RELEASE:=4
+PKG_VERSION:=1.0.2
+PKK_RELEASE:=9
 
 include $(INCLUDE_DIR)/package.mk
 
