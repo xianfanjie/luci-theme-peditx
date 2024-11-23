@@ -49,6 +49,7 @@
 <% if node and node.css then %>
 <link rel="stylesheet" href="<%=resource%>/<%=node.css%>">
 <% end -%>
+<link rel="manifest" href="/luci-static/peditx/manifest.json">	
 <script src="<%=url('admin/translations', luci.i18n.context.lang)%>?v=git-21.295.66888-fc702bc"></script>
 <script src="<%=resource%>/cbi.js?v=git-21.295.66888-fc702bc"></script>
 <title><%=striptags( (boardinfo.hostname or "?") .. ( (node and node.title) and ' - ' .. translate(node.title) or '')) %> - LuCI</title>
