@@ -48,17 +48,17 @@ jobs:
           mkdir -p artifacts
           find bin/ -name "*.ipk" -exec cp {} artifacts/ \;
 
-      - name: Create Release and Upload Assets
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v1.0.0
-          release_name: "luci-theme-peditx release - ${{ steps.build.outputs.timestamp }}"
-          body: "First release of luci-theme-peditx theme for OpenWrt."
-          files: sdk/artifacts/luci-theme-peditx_*.ipk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Set Release Timestamp
         id: build
         run: |
           echo "timestamp=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+
+      - name: Create Release and Upload Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.0
+          name: "luci-theme-peditx release - ${{ steps.build.outputs.timestamp }}"
+          body: "First release of luci-theme-peditx theme for OpenWrt."
+          files: sdk/artifacts/luci-theme-peditx_*.ipk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
