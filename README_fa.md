@@ -45,7 +45,7 @@ PeDitX یک تم طراحی شده برای OpenWrt است که مخصوصاً �
 ## تشکر ویژه:
 
 - [PeDitX](https://github.com/peditx)
-- [PeDitXRT](https://github.com/peditxrt)
+- [PeDitXRT](https://github.com/peditx/peditxrt)
 - [OpenWrt](https://github.com/openwrt)
 - [ImmortalWrt](https://github.com/immortalwrt)
 - [Bootstrap Theme](https://github.com/twbs/bootstrap)
