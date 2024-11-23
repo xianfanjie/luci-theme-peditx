@@ -45,7 +45,7 @@ This theme has not been tested on the **LEDE** version.
 ## Special Thanks:
 
 - [PeDitX](https://github.com/peditx)
-- [PeDitXRT](https://github.com/peditxrt)
+- [PeDitXRT](https://github.com/peditx/peditxrt)
 - [OpenWrt](https://github.com/openwrt)
 - [ImmortalWrt](https://github.com/immortalwrt)
 - [Bootstrap Theme](https://github.com/twbs/bootstrap)
