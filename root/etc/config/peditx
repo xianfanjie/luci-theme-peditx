@@ -42,7 +42,7 @@ config navbar
 	option line '5'
 	option newtab 'No'
 	option icon '/www/luci-static/peditx/gaya/icon/navbar/modem.png'
-	option address '/cgi-bin/luci/admin/modem/main'
+	option address '/cgi-bin/luci/admin/network/wireless'
 
 config navbar
 	option name 'Network'
