@@ -20,7 +20,7 @@
 <% 
 local ver = require "luci.version"
 local uci = require "luci.model.uci".cursor()
-local config = uci:get_all("peditx", "theme")
+local config = uci:get_all("peditx", "theme") or {}
 
 -- Table to store navbar icons
 local icon = {}
