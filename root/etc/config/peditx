@@ -33,7 +33,7 @@ config navbar
 	option enable 'Enable'
 	option line '4'
 	option newtab 'No'
-	option icon '/www/luci-static/peditx/gaya/icon/navbar/neko.png'
+	option icon '/www/luci-static/peditx/gaya/icon/navbar/passwall.png'
 	option address '/cgi-bin/luci/admin/services/passwall2'
 
 config navbar
