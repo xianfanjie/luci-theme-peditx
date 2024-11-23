@@ -51,3 +51,8 @@ PeDitX 是专为 OpenWrt 设计的主题，特别是为移动设备优化。它�
 - [Bootstrap 主题](https://github.com/twbs/bootstrap)
 
 该主题基于 [Bootstrap 主题](https://github.com/twbs/bootstrap)。
+
+
+© 2018–2024 PeDitX. All rights reserved.  
+For support or inquiries, join us on [Telegram](https://t.me/peditx).
+
