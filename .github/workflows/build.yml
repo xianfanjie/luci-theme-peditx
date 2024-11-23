@@ -61,4 +61,4 @@ jobs:
           body: "First release of luci-theme-peditx theme for OpenWrt."
           files: sdk/artifacts/luci-theme-peditx_*.ipk
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
